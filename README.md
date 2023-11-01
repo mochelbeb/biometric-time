@@ -2,6 +2,13 @@
 
 This Node.js application is a RESTful API for managing the Biometric Time Clock system. It includes the following features:
 
+## Requirements
+
+1. NodeJs >= 18
+2. Mongodb (locally or cloud hosting)
+3. Set up the ENV variables **DATABASE_URL**, **DATABASE_NAME**, and **PORT**
+
+
 ## Features
 
 1. **Create Employee**
@@ -25,10 +32,10 @@ This Node.js application is a RESTful API for managing the Biometric Time Clock 
 - Implemented endpoints for employee creation, listing employees, and check-in/check-out actions.
 - Stored employee information, check-in, and check-out records in a database.
 - Calculated and saved data, such as time between check-in and check-out.
-- Documentation included with swaggerUi on /api-docs
+- Documentation included with swaggerUi on **/api-docs**
 
 ## Bonus Points
 
-- Added swagger documentation for endpoints
-- Added unit tests and integration tests.
+- Added **swagger** documentation for endpoints
+- Added **unit tests** and **integration tests**.
 - Docker support for running the application in a container.
