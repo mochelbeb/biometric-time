@@ -48,7 +48,6 @@ describe('Global Integration test: ', () => {
             .end((err, res) => {
                 if (err) return done(err);
                 createdEmployee = res.body.data;
-                console.log(createdEmployee);
                 done();
             });
     });
