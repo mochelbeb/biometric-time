@@ -1,4 +1,4 @@
-# Biometric Time Clock API -YASSIR CODE CAHLLENGE-
+# Biometric Time Clock API -YASSIR CODE CHALLENGE-
 
 This Node.js application is a RESTful API for managing the Biometric Time Clock system. It includes the following features:
 
