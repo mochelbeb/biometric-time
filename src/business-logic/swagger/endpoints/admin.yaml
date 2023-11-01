@@ -1,0 +1,230 @@
+/admin/createEmployee:
+  post:
+    tags:
+      - Employee
+    summary: Create a new employee
+    description: Create a new employee
+    operationId: createEmployee
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    requestBody:
+      description: Employee object that needs to be added to the store
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              firstName:
+                type: string
+                example: Mohamed
+              lastName:
+                type: string
+                example: islam
+              department:
+                type: string
+                example: Computer Science
+    responses:
+      200:
+        description: successful operation
+        schema:
+          type: object
+          properties:
+            status:
+              type: string
+              example: true
+            message:
+              type: string
+              example: Employee created successfully
+            data:
+              type: object
+              properties:
+                _id:
+                  type: string
+                  example: 5f9b3b5b5f9b3b5b5f9b3b5b
+                firstName:
+                  type: string
+                  example: Mohamed
+                lastName:
+                  type: string
+                  example: islam
+                department:
+                  type: string
+                  example: Computer Science
+                dateCreated:
+                  type: string
+                  example: "2023-11-02T12:12:27.000Z"
+      400:
+        description: bad request
+      500:
+        description: Internal server error
+/admin/getEmployees:
+  get:
+    tags:
+      - Employee
+    summary: Get all employees
+    description: Get all employees
+    operationId: getEmployees
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: date
+        in: query
+        description: dateCreated filter
+        required: false
+    responses:
+      200:
+        description: successful operation
+        schema:
+          type: object
+          properties:
+            status:
+              type: string
+              example: true
+            message:
+              type: string
+              example: Employees retrieved successfully
+            data:
+              type: array
+              items:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                    example: 5f9b3b5b5f9b3b5b5f9b3b5b
+                  firstName:
+                    type: string
+                    example: Mohamed
+                  lastName:
+                    type: string
+                    example: islam
+                  department:
+                    type: string
+                    example: Computer Science
+                  dateCreated:
+                    type: string
+                    example: "2023-11-02T12:12:27.000Z"
+      400:
+        description: bad request
+      500:
+        description: Internal server error
+
+/admin/check-in/{user_id}:
+  post:
+    tags:
+      - Check Process
+    summary: Check in
+    description: Check in
+    operationId: checkIn
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: user_id
+        in: path
+        description: user id
+        required: true
+    responses:
+      200:
+        description: successful operation
+        schema:
+          type: object
+          properties:
+            status:
+              type: string
+              example: true
+            message:
+              type: string
+              example: Check in successfully
+            data:
+              type: object
+              properties:
+                _id:
+                  type: string
+                  example: 5f9b3b5b5f9b3b5b5f9b3b5b
+                user_id:
+                  type: string
+                  example: 5f9b3bf4564df9b3b5b5f9b3b5b
+                checkIn:
+                  type: string
+                  example: "2023-11-02T12:12:27.000Z"
+                dateCreated:
+                  type: string
+                  example: "2023-11-02T12:12:27.000Z"
+      400:
+        description: bad request
+      500:
+        description: Internal server error
+/admin/check-out/{user_id}:
+  post:
+    tags:
+      - Check Process
+    summary: Check out
+    description: Check out
+    operationId: checkOut
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - name: user_id
+        in: path
+        description: user id
+        required: true
+    requestBody:
+      description: Check out object that needs to be added to the store
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              comment:
+                type: string
+                example: "Employee left early"
+    responses:
+      200:
+        description: successful operation
+        schema:
+          type: object
+          properties:
+            status:
+              type: string
+              example: true
+            message:
+              type: string
+              example: Check out successfully
+            data:
+              type: object
+              properties:
+                _id:
+                  type: string
+                  example: 5f9b3b5b5f9b3b5b5f9b3b5b
+                user_id:
+                  type: string
+                  example: 5f9b3bf4564df9b3b5b5f9b3b5b
+                checkIn:
+                  type: string
+                  example: "2023-11-02T12:12:27.000Z"
+                checkOut:
+                  type: string
+                  example: "2023-11-02T12:12:27.000Z"
+                workTime:
+                  type: string
+                  example: "2h45min"
+                comment:
+                  type: string
+                  example: "Employee left early"
+                dateCreated:
+                  type: string
+                  example: "2023-11-02T12:12:27.000Z"
+      400:
+        description: bad request
+      500:
+        description: Internal server error
+
